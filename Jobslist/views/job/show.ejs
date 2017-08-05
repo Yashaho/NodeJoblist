@@ -1,0 +1,105 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+            <h1 class="company-heading"><%= foundjob.postedBy.company %></h1>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+        <div class="row"> 
+            <div class="col-md-12">   
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2><%=foundjob.title%></h2>
+                        <span class="label label-default"><%= moment (foundjob.createdAt).format("dddd, MMMM Do YYYY") %></span>
+                        <span class="label label-default"><%= foundjob.experience %></span>
+                        <span class="label label-info"><%= foundjob.location %></span>
+                        <span class="label label-success"><%= foundjob.postedBy.company %></span>
+                        <span class="label label-default"><%= foundjob.categories%></span>
+                        <span class="label label-info"><%= foundjob.worktype %></span>
+                       
+                        <h3>Job Description</h3>
+                        <p><%= foundjob.description %></p>
+                        
+                        <button type="button" class="btn btn-primary">Apply</button>
+                        <a class="btn btn-danger btn-xs " id="delete-button">Delete</a>
+                        <a class="btn btn-warning btn-xs " id="edit-button" href="/joblist/<%= foundjob._id %>/edit">Edit</a>
+                        
+                   
+                    </div>
+                </div>   
+            </div>
+<div class="sidebar">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 list">
+			<p class="lead"></p>
+			<div class="list-group">
+				
+			
+
+            </div>
+            <div id = "map"></div>
+        </div>
+        
+        
+        
+
+ 
+                
+            </div>
+    <div class="container">
+        <div class="row desc"> 
+            <div class="col-md-12 desc">   
+                <div class="panel panel-default desc" >
+                    <div class="panel-body">
+                        <h1>About <%= foundjob.postedBy.company %></h1>
+                        <p><%= foundjob.postedBy.companydesc %></p>
+                        
+
+                    </div>
+                </div>   
+                
+            </div>
+                        
+                        
+       
+        </div> 
+    </div>
+</div>
+
+      
+        
+<script>
+  function initMap() {
+    let lat = <%= foundjob.lat %>;
+    let lng = <%= foundjob.lng %>;
+    let  center = {lat: lat, lng: lng };
+    let map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var contentString = `
+      <strong><%= foundjob.name %><br />
+      <%= foundjob.location %></strong>
+      <p><%= foundjob.description %></p>
+    `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoo-XPFv3LNOTcTWYiC3Eia0PllHzfvgc&callback=initMap"></script>
+
+<% include ../partials/footer %>

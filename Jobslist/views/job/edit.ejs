@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class = "row">
+        <div class="col-md-4">
+                <h1 class="heading">Edit</h1>
+                    <form class="job-form" action = "/joblist/<%= foundjob._id %>?_method=PUT" method = "POST">
+                         
+                        
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input class="form-control" type = "text" name = "title" value="<%=foundjob.title %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Job Categories</label>
+                            <select class="form-control" id="sel1" name="categories" value ="<%= foundjob.categories %>">
+                                <option>Cotent Writers</option>
+                                <option>Database / DBA</option>
+                                <option>Design</option>
+                                <option>Management / HR</option>
+                                <option>Mobile Development</option>
+                                <option>Online Marketing</option>
+                                <option>Programming</option>
+                                <option>QA / Testing</option>
+                                <option>Sales</option>
+                                <option>Sys Ad / Network</option>
+                                <option>Tech Support</option>
+                                <option>Technician / Hardware</option>
+                                <option>Training / Education</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="sel1">Work Type</label>
+                            <select class="form-control" id="sel1" name="worktype" value="<%= foundjob.worktype %>">
+                                <option>Fulltime</option>
+                                <option>Contract</option>
+                                <option>Freelance</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Work Experience</label>
+                            <select class="form-control" id="sel1" name="experience" value="<%= foundjob.experience %>">
+                                <option>No Work Experience</option>
+                                <option>1 year or less</option>
+                                <option>2 to 4 years of Work experience</option>
+                                <option>5+ years Work experience</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="salary">Salary</label>
+                            <input class="form-control" type = "text" name = "salary"  value="<%= foundjob.salary %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input class="form-control" type = "text" name = "location"id="location" value ="<%= foundjob.location %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                              <textarea class="form-control" rows="5" name="description" id="comment" value="<%= foundjob.description %>"></textarea>
+                        </div>
+                        <div class="form-group">
+                                <button style="width:100%;" class="btn btn-lg btn-primary">Submit</button>
+                                <p>
+                                <a href="/joblist">Go back</a> 
+                                </p>
+                              
+                        </div>
+                        </div>
+                    </div>
+                    </form>
+            </div>
+            
+            </div>
+    </div>
+    </div>
+    <% include ../partials/footer %>

@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+<div class="container">
+       <header class="jumbotron">
+          <div class = "container">
+          <h1>Welcome to JobList</h1>
+            <p>Lorem Ipsum</p>
+            <p>
+            <a class="btn btn-primary btn-lg" href="/joblist/new">Post a Job</a>
+            </p>
+            </div>
+        </header>
+    
+       <div class="row" style="display: flex; flex-wrap: flex;">
+
+     
+            <div class="col-md-6 col-sm-6">
+                <div class="container">
+                   
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Posted</th>
+                            <th>Title</th>
+                            <th>Location</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                         <%job.forEach(function(jobs){%>
+                        <tr>
+                    
+                            <td><%= moment(jobs.createdAt) .format("dddd, MMMM Do YYYY") %></td>
+                            <td class="company"><%= jobs.postedBy.company %> | <a href="/joblist/<%=jobs._id%>"><%=jobs.title %></a></td>
+                            <td><%=jobs.location %></td>
+
+                        </tr>
+                    <%});%>
+                        </tbody>
+                    </table>
+                    </div>
+
+            </div>
+    
+        
+    </div>  
+</div>
+
+
+
+
+<% include ../partials/footer %>

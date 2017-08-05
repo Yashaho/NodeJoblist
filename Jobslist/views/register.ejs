@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+    <h1>Register</h1>
+<div class="container">
+    <div class = "row">
+        <div class="col-md-4">
+            <form class="register-form"  action = "/register" method="post">
+            <div class="form-group">
+                    <label for="title">Username</label>
+                        <input class="form-control" type = "text" name = "username" placeholder = "Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Password</label>
+                        <input class="form-control" type = "text" name = "password" placeholder = "Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Company</label>
+                        <input class="form-control" type = "text" name = "company" placeholder = "Company" required>
+                </div>
+                     <div class="form-group">
+                    <label for="salary">Company desc</label>
+                        <textarea class="form-control" rows="5" name="companydesc" id="comment" placeholder="Description"></textarea>
+                </div>
+                <button class="btn btn-default">Register</button>                     
+            </form>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>
+
+
