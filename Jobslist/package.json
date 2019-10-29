@@ -17,7 +17,7 @@
     "geocoder": "^0.2.3",
     "method-override": "^2.3.9",
     "moment": "^2.18.1",
-    "mongoose": "^4.11.3",
+    "mongoose": "^5.7.7",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-google-oauth": "^1.0.0",
